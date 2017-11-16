@@ -33,11 +33,18 @@
           </h1>
           <div class="post_meta">
             <time class="post_date" datetime="<?php the_time('Y-m-d'); ?>" itemprop="datePublished">
-              <?php the_time(__('F j, Y')); ?>
+              <?php 
+//the_time(__('F j, Y'));
+echo "Price: "; 
+echo get_post_meta(get_the_id(), 'Price', true) ? get_post_meta(get_the_id(), 'Price', true) : 'TBD';
+?>
             </time>
           </div>
           <div class="postcontent_list" itemprop="articleBody" data-type-cleanup="true">
           <?php the_content('Read More &raquo;'); ?>
           </div>
+
+          <?php the_meta(); ?> 
+
 </article>
 
