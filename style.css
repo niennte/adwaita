@@ -336,8 +336,16 @@ a:active {
 
 .chalet_nav {
   display: block;
-  width: 70%;
+  width: 90%;
   margin: -70px auto -100px;
+  text-align: center;
+}
+
+.chalet_nav img {
+  max-width: 90%;
+}
+.chalet_nav img:hover { 
+  max-width: 100%;
 }
 
 .chalet_nav .prev-posts a:before {

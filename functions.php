@@ -94,3 +94,13 @@ function themeprefix_vidbg_post_types( $post_types ) {
   return $post_types;
 }
 add_filter( 'vidbg_post_types', 'themeprefix_vidbg_post_types' );
+
+
+
+add_theme_support( 'post-thumbnails' );
+
+
+
+
+
+
