@@ -27,5 +27,10 @@
             <?php bloginfo('description'); ?>
           </a>
         </p>
+<h1 class="title">
+<?php if (the_title()): ?>
+<?php echo the_title(); ?>
+<?php endif; ?>
+</h1>
       </header>
     </div>

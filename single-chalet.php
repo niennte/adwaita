@@ -5,6 +5,13 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  */
+
+
+while (have_posts()) : the_post();
+//global $postTitle = the_title();
+endwhile;
+
+
 get_header();
 ?>
 
