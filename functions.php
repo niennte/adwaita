@@ -94,3 +94,44 @@ function themeprefix_vidbg_post_types( $post_types ) {
   return $post_types;
 }
 add_filter( 'vidbg_post_types', 'themeprefix_vidbg_post_types' );
+
+
+
+add_theme_support( 'post-thumbnails' );
+
+
+
+function adding_custom_meta_boxes( $post ) {
+    add_meta_box( 
+        'property-type',
+        __( 'Property Type' ),
+        'render_my_meta_box',
+        'chalet',
+        'side',
+        'default'
+    );
+}
+add_action( 'add_meta_boxes_chalet', 'adding_custom_meta_boxes' );
+
+function render_my_meta_box($post) {
+
+  wp_nonce_field( basename( __FILE__ ), 'food_meta_box_nonce' );
+
+// an array of values
+$propertyTypes = array( 'Rent', 'Sale');
+// stores _property_type
+$property_type = ( get_post_meta( $post->ID, '_property_type', true ) ) ? get_post_meta( $post->ID, '_property_type', true ) : array();
+
+echo <<<HTML
+
+<div class='inside'>
+<p>
+	<input type="radio" name="property-type" value="rent" {checked( $property_type, 'rent' )}/> Rent<br />
+	<input type="radio" name="property-type" value="sale" {checked( $property_type, 'sale' )}/> Sale
+</p>
+</div>
+HTML;
+
+
+
+}
