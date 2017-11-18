@@ -6,6 +6,7 @@ function load_css() {
 add_action( 'wp_enqueue_scripts', 'load_css' );
 
 
+add_theme_support( 'post-thumbnails' );
 
 
 /*
@@ -94,3 +95,16 @@ function themeprefix_vidbg_post_types( $post_types ) {
   return $post_types;
 }
 add_filter( 'vidbg_post_types', 'themeprefix_vidbg_post_types' );
+
+
+
+
+function my_acf_google_map_api( $api ){
+	
+	$api['key'] = 'AIzaSyCCd5yApgSR3BYKV5KKfCtJG5bi2E7h78w';
+	
+	return $api;
+	
+}
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');

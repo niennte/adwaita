@@ -41,3 +41,26 @@
           </div>
 </article>
 
+
+
+
+
+
+
+<?php 
+
+$location = get_field('location');
+
+if( !empty($location) ):
+?>
+<div class="acf-map">
+	<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+</div>
+<?php endif; ?>
+
+
+
+
+
+
+<?php echo do_shortcode( '[contact-form-7 id="'. get_post_meta(get_the_id(), 'contact', true) .'" title="Contact form 1"]' ); ?>
