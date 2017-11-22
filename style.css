@@ -252,7 +252,7 @@ a:active {
 .posts_area {
   display: block;
   min-height: 16.666666666666664rem;
-  max-width: 35.55555555555556rem;
+  --max-width: 35.55555555555556rem;
   margin: 0 auto;
   color: #6f6f6f;
 }
@@ -350,15 +350,22 @@ a:active {
 }
 
 
-.postcontent_list {
-  width: 50%;
-  margin: 0 10% 0;
-}
-
-
-.pull-right {
+.chalet_nav .pull-right {
   float: right;
 }
+
+
+
+
+.single-chalet article.post {
+  display: block;
+  --max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+
+
 
 .acf-map {
 	width: 100%;
@@ -381,7 +388,7 @@ a:active {
 }
 
 .postcontent_list p {
-  width: 70%;
+  width: 100%;
   margin: 15px auto;
   text-align: center;
 }
@@ -744,3 +751,4 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     min-width: 10em;
   }
 }
+

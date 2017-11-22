@@ -7,6 +7,13 @@ add_action( 'wp_enqueue_scripts', 'load_css' );
 
 
 add_theme_support( 'post-thumbnails' );
+//set_post_thumbnail_size( 200, 200, true);
+
+// This theme uses wp_nav_menu() in two locations.
+register_nav_menus( array(
+	'primary' => __( 'Primary Menu',      'adwaita' ),
+	'social'  => __( 'Social Links Menu', 'adwaita' ),
+) );
 
 
 /*
@@ -38,9 +45,9 @@ function custom_post_type() {
         'description'         => __( 'Chalet info', 'adwaita' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'info', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'property-type', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array( 'genres' ),
+        'taxonomies'          => array( 'property-type', 'categories' ),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -108,3 +115,9 @@ function my_acf_google_map_api( $api ){
 }
 
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+
+add_action('init','add_categories_to_chalet');
+function add_categories_to_chalet(){
+    register_taxonomy_for_object_type('category', 'chalet');
+}

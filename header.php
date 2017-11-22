@@ -12,6 +12,9 @@
   
   <!-- Start blog display -->
   <div class="wrapper">
+<?php
+//wp_nav_menu( array( 'theme_location' => 'primary' ) );
+?>
     <!-- Header -->
     <div class="header_wrap">
       

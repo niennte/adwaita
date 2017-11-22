@@ -1,53 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>
-      <?php wp_title(''); ?>
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <?php wp_head(); ?>
-
-  </head>
-  <body>
-  
-  <!-- Start blog display -->
-  <div class="wrapper">
-
-    <!-- Header -->
-    <div class="header_wrap">
-      
-      <header role='banner' class="site_header">
-
-        <a href="<?php echo home_url(); ?>" class="logo"></a>
-        <h1>
-          <a href="<?php echo home_url(); ?>">
-            <?php bloginfo('name'); ?>
-          </a>
-        </h1>
-        <p>
-          <a href="<?php echo home_url(); ?>">
-            <?php bloginfo('description'); ?>
-          </a>
-        </p>
-
-      </header>
-
-    </div>
+<?php
+get_header();
+?>
 
     <!-- Posts Area -->
     <main class="posts_area">
 
 <?php
-if ( get_query_var('paged') ) $paged = get_query_var('paged');
-if ( get_query_var('page') ) $paged = get_query_var('page');
-$query = new WP_Query( array( 'post_type' => 'chalet', 'paged' => $paged ) );
+//if ( get_query_var('paged') ) $paged = get_query_var('paged');
+//if ( get_query_var('page') ) $paged = get_query_var('page');
+//$query = new WP_Query( array( 'post_type' => 'chalet', 'paged' => $paged ) );
 ?>
 
 
       
-      <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+      <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
         <article class="post" role="article" itemscope itemtype="http://schema.org/Article">
           <h1 class="title">
